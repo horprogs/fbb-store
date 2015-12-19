@@ -16,6 +16,7 @@
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-less": "^1.1.0",
+    "grunt-ftp-push": "^0.4.3",
     "less": "^2.5.3"
   }
 }
