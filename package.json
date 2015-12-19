@@ -1,0 +1,20 @@
+{
+  "name": "fbb-store",
+  "version": "0.0.0",
+  "description": "Издательство «Фрай, без штанов и Бендер» запускает межгалактический интернет-магазин книг.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/netology-university/fbb-store.git"
+  },
+  "homepage": "https://bitbucket.org/netology-university/fbb-store/wiki/Home",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "less": "^2.5.3"
+  }
+}
