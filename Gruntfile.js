@@ -33,5 +33,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-ftp-push');
 	
 	grunt.registerTask('default', ['less', 'ftp_push']);
+	grunt.registerTask('start', ['less']);
 
 };

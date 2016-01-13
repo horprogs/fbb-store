@@ -4,6 +4,8 @@
   "description": "Издательство «Фрай, без штанов и Бендер» запускает межгалактический интернет-магазин книг.",
   "main": "index.html",
   "scripts": {
+	"prestart": "grunt start",
+	"start": "http-server -a localhost -p 8000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,6 +16,7 @@
   },
   "homepage": "https://bitbucket.org/netology-university/fbb-store/wiki/Home",
   "devDependencies": {
+	"http-server": "^0.8.5",
     "grunt": "^0.4.5",
     "grunt-contrib-less": "^1.1.0",
     "grunt-ftp-push": "^0.4.3",
