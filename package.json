@@ -1,25 +1,22 @@
 {
-  "name": "fbb-store",
-  "version": "0.0.0",
-  "description": "Издательство «Фрай, без штанов и Бендер» запускает межгалактический интернет-магазин книг.",
-  "main": "index.html",
+  "name": "zadavaka-path_page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
   "scripts": {
-	"prestart": "grunt start",
-	"start": "http-server -a localhost -p 8000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://bitbucket.org/netology-university/fbb-store.git"
-  },
-  "homepage": "https://bitbucket.org/netology-university/fbb-store/wiki/Home",
   "devDependencies": {
-	"http-server": "^0.8.5",
-    "grunt": "^0.4.5",
-    "grunt-contrib-less": "^1.1.0",
-    "grunt-ftp-push": "^0.4.3",
-    "less": "^2.5.3"
+    "browser-sync": "^2.11.1",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-cache": "^0.4.1",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.1.1",
+    "run-sequence": "^1.1.5"
   }
 }
