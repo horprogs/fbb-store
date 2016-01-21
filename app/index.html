@@ -21,18 +21,43 @@
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
-<input type="text" placeholder="Поиск, скорее всего, не работает" ng-model="findPhrase">
-<div ng-controller="catalogController">
-    <div id="{{book.id}}" class="books__elem" ng-repeat="book in books | limitTo: countBooksShow | filter: findPhrase">
-        <figure>
-            <a href="#" ng-click="getBook(book.id)"><img src="{{book.cover.small}}" alt="{{book.title}}"></a>
-            <figcaption>
-                <div class="book__info">{{book.info}}</div>
-            </figcaption>
-        </figure>
-    </div>
-</div>
-<input type="button" ng-click="countBooksShow = countBooksShow + 4" ng-init="countBooksShow = 4" value="Еще несколько книг"/>
+<header class="clearfix">
+    <a href="/" class="logo" title="Фрай, без штанов и Бендер"><img src="img/logo.png" alt="Фрай, без штанов и Бендер"></a>
+    <input type="text" class="search" placeholder="Как ни странно, поиск работает" ng-model="findPhrase">
+</header>
+<main ng-controller="catalogController">
+    <section class="page__index">
+        <h1>Самое незаметное издательство</h1>
+        <h3>Перетаскивайте книги ниже с места на место. Это то, чем мы любим больше всего заниматься. Попробуйте, вам понравится. </h3>
+        <div class="catalog">
+            <div id="{{book.id}}" class="books__elem" ng-repeat="book in books | limitTo: countBooksShow | filter: findPhrase">
+                <figure>
+                    <a href="#" ng-click="getBook(book.id)"><img src="{{book.cover.small}}" alt="{{book.title}}"></a>
+                    <figcaption>
+                        <div class="book__info">{{book.info}}</div>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        <input type="button" class="button__more" ng-click="countBooksShow = countBooksShow + 4" ng-init="countBooksShow = 4" value="Еще несколько книг"/>
+    </section>
+    <section class="page__book">
+        <h1>Мы издаем книги, вы их можете не читать</h1>
+        <div class="book__detail">
+            <div class="reviews">
+                {{bookDetails.title}}
+            </div>
+            <div class="book__cover">
+                <img src="{{bookDetails.cover.large}}" alt="">
+                <div class="book__info"></div>
+                <input type="button" value="Купить за жалкие {{bookDetails.price | number:0}}Z">
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <a href="#" class="link__bottom"><img src="img/bg_bottom.jpg" alt=""></a>
+</footer>
 </body>
 
 </html>

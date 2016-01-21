@@ -78,10 +78,10 @@ gulp.task('replaceLinks', function () {
 })
 
 gulp.task('images', function () {
-    return gulp.src('app/img/**/*.+(png|jpg|gif|svg)')
-        .pipe(cache(imagemin({
-            interlaced: true
-        })))
+    return gulp.src('app/img/*.*')
+        .pipe(imagemin({
+         progressive: true
+        }))
         .pipe(gulp.dest('build/img'))
 });
 
