@@ -1,2 +1,4 @@
 .idea
 fbb-store_main
+node_modules
+build

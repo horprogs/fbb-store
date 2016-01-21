@@ -4,8 +4,13 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     imagemin = require('gulp-imagemin'),
     replace = require('gulp-replace'),
+    rename = require('gulp-rename'),
     cache = require('gulp-cache'),
     del = require('del'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    cssnano = require('gulp-cssnano'),
+    ngmin = require('gulp-ngmin'),
     runSequence = require('run-sequence');
 
 
@@ -19,9 +24,15 @@ gulp.task('sass', function () {
 });
 
 gulp.task('prefix', function () {
-    return gulp.src('build/css/*.css')
+    return gulp.src('app/style/*.css')
         .pipe(prefix())
-        .pipe(gulp.dest('build/css'))
+        .pipe(gulp.dest('app/style'))
+})
+
+
+gulp.task('repFonts', function () {
+    return gulp.src('app/fonts/*.*')
+        .pipe(gulp.dest('build/fonts'))
 })
 
 gulp.task('repCss', function () {
@@ -29,15 +40,32 @@ gulp.task('repCss', function () {
         .pipe(gulp.dest('build/css'))
 })
 
-gulp.task('repFonts', function () {
-    return gulp.src('app/fonts/*.*')
-        .pipe(gulp.dest('build/fonts'))
+gulp.task('minCss', function () {
+    return gulp.src('app/style/*.css')
+        .pipe(concat('styles.min.css'))
+        .pipe(cssnano())
+        .pipe(gulp.dest('build/css'))
+})
+
+gulp.task('minNg', function () {
+    return gulp.src('app/js/app.js')
+        .pipe(ngmin({dynamic: true}))
+        .pipe(rename('app.min.js'))
+        .pipe(gulp.dest('build/js'))
+})
+
+gulp.task('minJs', function () {
+    return gulp.src('app/js/!app.js')
+        .pipe(concat('scripts.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('build/js'))
 })
 
 gulp.task('repJs', function () {
-    return gulp.src('app/js/*.*')
+    return gulp.src('app/js/*.js')
         .pipe(gulp.dest('build/js'))
 })
+
 gulp.task('repHtml', function () {
     return gulp.src('app/*.html')
         .pipe(gulp.dest('build'))
@@ -45,7 +73,7 @@ gulp.task('repHtml', function () {
 
 gulp.task('replaceLinks', function () {
     return gulp.src('build/**/*.*')
-        .pipe(replace('style/','css/'))
+        .pipe(replace('style/', 'css/'))
         .pipe(gulp.dest('build'))
 })
 
@@ -77,11 +105,19 @@ gulp.task('clean:build', function () {
 });
 
 gulp.task('build', function (callback) {
-    runSequence('clean:build',
-        ['sass', 'images', 'repCss', 'repFonts', 'repJs', 'repHtml'], 'replaceLinks', 'prefix',
+    runSequence('clean:build', 'sass', 'prefix',
+        ['images', 'repCss', 'repFonts', 'repJs', 'repHtml'], 'replaceLinks',
         callback
     )
 })
+
+gulp.task('build-min', function (callback) {
+    runSequence('clean:build', 'sass', 'prefix',
+        ['images', 'minCss', 'repFonts','minNg', 'minJs', 'repHtml'], 'replaceLinks',
+        callback
+    )
+})
+
 gulp.task('default', function (callback) {
     runSequence(['sass', 'browserSync', 'watch'],
         callback
