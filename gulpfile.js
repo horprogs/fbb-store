@@ -60,6 +60,11 @@ gulp.task('minJs', function () {
         .pipe(uglify())
         .pipe(gulp.dest('build/js'))
 })
+gulp.task('concatJs', function () {
+    return gulp.src('app/js/*.js')
+        .pipe(concat('scripts.min.js'))
+        .pipe(gulp.dest('build/js'))
+})
 
 gulp.task('repJs', function () {
     return gulp.src('app/js/*.js')
@@ -113,7 +118,7 @@ gulp.task('build', function (callback) {
 
 gulp.task('build-min', function (callback) {
     runSequence('clean:build', 'sass', 'prefix',
-        ['images', 'minCss', 'repFonts','minNg', 'minJs', 'repHtml'], 'replaceLinks',
+        ['images', 'minCss', 'repFonts','repJs', 'repHtml'], 'replaceLinks',
         callback
     )
 })
