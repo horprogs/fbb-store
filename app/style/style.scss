@@ -1,5 +1,6 @@
-@import "normalize.css";
-@import "fonts.css";
+@import "normalize";
+@import "fonts";
+@import "ng-sortable";
 $colorInfo: #4D4D4D;
 body {
   background: #FFF;
@@ -121,16 +122,61 @@ h3 {
 .book__cover {
   width: 300px;
   margin: 0 auto;
+  position: relative;
   img {
     max-width: 380px;
     width: 100%;
     height:auto;
+
   }
   //position: absolute;
   //left: 0;
   //right: 0;
   //margin: 0 auto;
   //width: 420px;
+}
+@keyframes eye {
+  0% {
+    border-width: 5px 5px;
+  }
+  50% {
+    border-width: 65px 5px;
+  }
+  100% {
+    border-width: 5px 5px;
+  }
+}
+.book__eye {
+  animation: eye 3s infinite;
+  width: 140px;
+  height: 140px;
+  border-radius: 100%;
+  box-sizing: border-box;
+  border-width: 5px 5px;
+  border-style: solid;
+  border-color: #000;
+  display: block;
+  background: #FFF;
+  position: absolute;
+  top:260px;
+  left:120px;
+
+  .pixel {
+    font-size: 60px;
+    background: #000;
+    position: absolute;
+    border-radius: 100%;
+    text-align: center;
+    display: block;
+    width: 25px;
+    height: 25px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin:auto;
+    transition: transform ease 1s;
+  }
 }
 .container {
   &__reviews {
