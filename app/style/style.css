@@ -445,7 +445,17 @@ h3 {
   line-height: 76px;
   text-decoration: none;
   color: #FFF;
-  display: block; }
+  display: block;
+  -webkit-transition: box-shadow ease 500ms;
+  transition: box-shadow ease 500ms; }
+  .btn--purple:hover {
+    background-image: -webkit-linear-gradient(bottom, #49274B 0%, #C28DC5 100%);
+    background-image: linear-gradient(to top, #49274B 0%, #C28DC5 100%);
+    box-shadow: 0 20px 40px #382539; }
+  .btn--purple:active {
+    background-image: -webkit-linear-gradient(bottom, #623A64 0%, #865888 100%);
+    background-image: linear-gradient(to top, #623A64 0%, #865888 100%);
+    box-shadow: 0 5px 10px #382539; }
 
 .btn__buy {
   line-height: 30px;
@@ -608,6 +618,9 @@ h3 {
   border-radius: 8px;
   display: block;
   margin: 50px auto 100px; }
+  .button__more:hover {
+    color: #E51907;
+    border-color: #E51907; }
 
 .search {
   display: block;
@@ -631,6 +644,69 @@ h3 {
 .link__bottom {
   display: none; }
 
+.b-founders {
+  text-align: center;
+  margin: 60px 0; }
+  .b-founders__elem {
+    background-image: url("../img/founders.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin: 0 40px;
+    position: relative; }
+    .b-founders__elem:hover:before {
+      content: "";
+      background: url("../img/crown.png") no-repeat;
+      position: absolute;
+      top: -30px;
+      left: -3px;
+      width: 123px;
+      height: 149px;
+      display: block; }
+  .b-founders__elem1 {
+    width: 115px;
+    height: 115px;
+    background-position: -2px -2px; }
+  .b-founders__elem2 {
+    width: 115px;
+    height: 115px;
+    background-position: -121px -2px; }
+  .b-founders__elem3 {
+    width: 115px;
+    height: 115px;
+    background-position: -121px -118px; }
+  .b-founders__elem4 {
+    width: 115px;
+    height: 115px;
+    background-position: -240px -2px; }
+  .b-founders__elem5 {
+    width: 115px;
+    height: 115px;
+    background-position: -2px -121px; }
+  .b-founders__elem6 {
+    width: 115px;
+    height: 115px;
+    background-position: -240px -121px; }
+
+.b-about {
+  max-width: 640px;
+  margin: 0 auto; }
+  .b-about__title {
+    font-size: 42px;
+    font-weight: 700;
+    margin: 50px 0 30px; }
+  .b-about__content {
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 29px; }
+  .b-about__founder {
+    font-weight: 700;
+    font-size: 24px;
+    margin: 40px 0 20px; }
+    .b-about__founder:first-child {
+      margin: -10px 0 20px; }
+
+/*-------------------- BEGIN: MEDIAS --------------------*/
+/*-------------------- END:   MEDIAS --------------------*/
 @media screen and (min-width: 600px) {
   .catalog {
     max-width: 690px; }
@@ -638,7 +714,8 @@ h3 {
       padding: 0 10px;
       width: 280px; }
   h3 {
-    font-size: 32px; }
+    font-size: 32px;
+    display: block; }
   h1 {
     font-size: 72px;
     margin: 60px 0 0;

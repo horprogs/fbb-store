@@ -61,7 +61,7 @@ gulp.task('minJs', function () {
         .pipe(gulp.dest('build/js'))
 })
 gulp.task('concatJs', function () {
-    return gulp.src('app/js/*.js')
+    return gulp.src(['app/js/ng_sortable.js','app/js/main.js','app/js/app.js' ])
         .pipe(concat('scripts.js'))
         .pipe(gulp.dest('build/js'))
 })

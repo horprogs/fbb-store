@@ -31,7 +31,7 @@
         <h3>Перетаскивайте книги ниже с места на место. Это то, чем мы любим больше всего заниматься. Попробуйте, вам понравится. </h3>
         <div class="catalog" data-as-sortable="board.dragControlListeners" data-ng-model="books">
             <div id="{{book.id}}" class="books__elem" ng-repeat="book in books | limitTo: countBooksShow | filter: findPhrase" data-as-sortable-item>
-                <figure  data-as-sortable-item-handle>
+                <figure data-as-sortable-item-handle>
                     <a href="#" class="link__book" ng-click="getBook(book.id)"><img src="{{book.cover.small}}" alt="{{book.title}}"></a>
                     <figcaption>
                         <div class="book__info">{{book.info}}</div>
@@ -74,7 +74,7 @@
     </section>
 </main>
 <footer>
-    <a href="#" class="link__bottom"><img src="img/bg_bottom.jpg" alt=""></a>
+    <a href="about.html" class="link__bottom"><img src="img/bg_bottom.jpg" alt=""></a>
 </footer>
 </body>
 
