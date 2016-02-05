@@ -61,8 +61,8 @@ gulp.task('minJs', function () {
         .pipe(gulp.dest('build/js'))
 })
 gulp.task('concatJs', function () {
-    return gulp.src('app/js/*.js')
-        .pipe(concat('scripts.min.js'))
+    return gulp.src(['app/js/ng_sortable.js','app/js/main.js','app/js/app.js' ])
+        .pipe(concat('scripts.js'))
         .pipe(gulp.dest('build/js'))
 })
 
@@ -77,7 +77,7 @@ gulp.task('repHtml', function () {
 })
 
 gulp.task('replaceLinks', function () {
-    return gulp.src('build/**/*.*')
+    return gulp.src('build/**/*.html')
         .pipe(replace('style/', 'css/'))
         .pipe(gulp.dest('build'))
 })
@@ -111,7 +111,7 @@ gulp.task('clean:build', function () {
 
 gulp.task('build', function (callback) {
     runSequence('clean:build', 'sass', 'prefix',
-        ['images', 'repCss', 'repFonts', 'repJs', 'repHtml'], 'replaceLinks',
+        ['images', 'minCss', 'repFonts', 'concatJs', 'repHtml'], 'replaceLinks',
         callback
     )
 })

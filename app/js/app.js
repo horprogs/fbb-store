@@ -1,4 +1,5 @@
-var app = angular.module('bookShop', []);
+var app = angular.module('bookShop', ['as.sortable']);
+
 
 app.controller('catalogController', function ($scope, $http) {
     $http.get("http://university.netology.ru/api/book").success(function (data) {
@@ -19,4 +20,22 @@ app.controller('catalogController', function ($scope, $http) {
             $scope.bookDetails.price = priceTo;
         });
     };
+
+    $scope.dragControlListeners = {
+        accept: function (sourceItemHandleScope, destSortableScope) {
+
+            return boolean
+        },//override to determine drag is allowed or not. default is true.
+        itemMoved: function (event) {
+            console.log(event)
+        },
+        orderChanged: function (event) {
+        },
+        containment: '#board',//optional param.
+        clone: true, //optional param for clone feature.
+        allowDuplicates: false //optional param allows duplicates to be dropped.
+    };
+
+
+
 })
