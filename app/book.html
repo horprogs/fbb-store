@@ -1,18 +1,31 @@
-<!DOCTYPE html>
-<html lang="en" data-ng-app="bookShop">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
-    <script src="js/ng-sortable.min.js"></script>
-    <script src="js/app.js"></script>
-</head>
-<body>
+<section class="page__book">
+    <h1>Мы издаем книги, вы их можете не читать</h1>
+    <div class="book__detail clearfix">
+        <div class="book__cover">
+            <img data-ng-src="{{bookDetails.cover.large}}" alt="">
+            <span class="book__eye"><span class="pixel"></span></span>
+            <p class="text--big text--centered">{{bookDetails.description}}</p>
+        </div>
 
-<a href="#about" class="link__bottom"><img src="img/bg_bottom.jpg" alt=""></a>
-<div ng-view>
+        <div class="container__reviews">
+            <div class="book__review" data-ng-repeat="review in bookDetails.reviews">
+                <img data-ng-src="{{review.author.pic}}" class="block--centered" alt="">
+                <p class="text--normal text--quote text--centered">{{review.cite}}</p>
+            </div>
+        </div>
 
-</div>
-</body>
-</html>
+        <div class="container__features">
+            <div class="book__feature" data-ng-repeat="feature in bookDetails.features">
+                <img data-ng-src="{{feature.pic }}" class="block--centered" alt="">
+                <p class="text--normal text--centered">{{feature.title}}</p>
+            </div>
+        </div>
+
+    </div>
+    <a href="#" class="btn--purple btn__buy">Купить <br> за жалкие {{bookDetails.price | number:0}} <span class="text--through">Z</span></a>
+
+    <div class="skraffi">
+        <p>Наши цены самые непредсказуемые и формируются нашим уборщиком Скраффи</p>
+        <img src="img/skraffi.jpg" class="block--centered" alt="">
+    </div>
+</section>

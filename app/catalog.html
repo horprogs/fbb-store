@@ -1,0 +1,15 @@
+<section class="page__index">
+    <h1>Самое незаметное издательство</h1>
+    <h3>Перетаскивайте книги ниже с места на место. Это то, чем мы любим больше всего заниматься. Попробуйте, вам понравится. </h3>
+    <div class="catalog" data-as-sortable="board.dragControlListeners" data-ng-model="books">
+        <div id="{{book.id}}" class="books__elem" data-ng-repeat="book in books | limitTo: countBooksShow | filter: findPhrase" data-as-sortable-item>
+            <figure data-as-sortable-item-handle>
+                <a href="/book" class="link__book" data-ng-click="getBook(book.id)"><img data-ng-src="{{book.cover.small}}" alt="{{book.title}}"></a>
+                <figcaption>
+                    <div class="book__info">{{book.info}}</div>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+    <input type="button" class="button__more" data-ng-click="countBooksShow = countBooksShow + 4" data-ng-init="countBooksShow = 4" data-ng-hide="countBooksShow > books.length" value="Еще несколько книг"/>
+</section>

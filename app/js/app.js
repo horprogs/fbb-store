@@ -1,4 +1,23 @@
-var app = angular.module('bookShop', ['as.sortable']);
+var app = angular.module('bookShop', ['ngRoute']);
+
+app.config(function ($routeProvider, $locationProvider) {
+    $routeProvider
+
+        .when('/', {
+            templateUrl: 'catalog.html',
+            controller: 'catalogController'
+        })
+
+        .when('/book', {
+            templateUrl: 'book.html',
+            controller: 'catalogController'
+        })
+
+        .when('/about', {
+            templateUrl: 'about.html'
+        })
+    $locationProvider.html5Mode(true);
+});
 
 
 app.controller('catalogController', function ($scope, $http) {
@@ -35,7 +54,6 @@ app.controller('catalogController', function ($scope, $http) {
         clone: true, //optional param for clone feature.
         allowDuplicates: false //optional param allows duplicates to be dropped.
     };
-
 
 
 })
