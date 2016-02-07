@@ -1,4 +1,4 @@
-<section class="page__book">
+<section class="page__book" data-ng-controller="bookController">
     <h1>Мы издаем книги, вы их можете не читать</h1>
     <div class="book__detail clearfix">
         <div class="book__cover">
@@ -22,7 +22,7 @@
         </div>
 
     </div>
-    <a href="#" class="btn--purple btn__buy">Купить <br> за жалкие {{bookDetails.price | number:0}} <span class="text--through">Z</span></a>
+    <a href="/checkout/{{bookDetails.id}}" class="btn--purple btn__buy">Купить <br> за жалкие {{bookDetails.price | number:0}} <span class="text--through">Z</span></a>
 
     <div class="skraffi">
         <p>Наши цены самые непредсказуемые и формируются нашим уборщиком Скраффи</p>

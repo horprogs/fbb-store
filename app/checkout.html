@@ -1,0 +1,20 @@
+<section class="page-checkout" data-ng-controller="checkoutController">
+    <div class="book__cover">
+        <img data-ng-src="{{bookDetails.cover.large}}" alt="">
+        <p class="text--big text--centered">{{bookDetails.title}}</p>
+    </div>
+    <form action="" class="checkout" >
+        <input type="text" class="checkout__name" placeholder="Ваше имя" required>
+        <input type="text" class="checkout__phone" placeholder="Ваш телефон" required>
+        <input type="email" class="checkout__email" placeholder="Ваш Email">
+        <textarea class="checkout__comment" placeholder="Комментарий к заказу"></textarea>
+        <select class="checkout__delivery" data-ng-model="delivery" >
+            <option data-ng-repeat="item in delivery" value="{{item.id}}">{{item.name}}</option>
+        </select>
+        <textarea class="checkout__addr" placeholder="Адрес доставки" data-ng-hide="item.needAdress == false"></textarea>
+        <select class="checkout__payment" data-ng-model="delivery">
+            <option data-ng-repeat="item in delivery" value="{{item.id}}">{{item.name}}</option>
+        </select>
+        <input class="checkout__submit" type="submit" value="Заказать">
+    </form>
+</section>

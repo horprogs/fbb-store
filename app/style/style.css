@@ -449,10 +449,8 @@ html, body {
 .footer-buffer {
   height: 190px; }
 
-.page__book {
-  display: none; }
-  .page__book h1 {
-    margin: 0px 0 50px; }
+.page__book h1 {
+  margin: 0px 0 50px; }
 
 .btn--purple {
   max-width: 440px;
@@ -523,46 +521,90 @@ html, body {
 .text--centered {
   text-align: center; }
 
+.page-checkout .checkout__name, .page-checkout .checkout__phone, .page-checkout .checkout__email, .page-checkout .checkout__comment, .page-checkout .checkout__delivery, .page-checkout .checkout__addr, .page-checkout .checkout__payment, .page-checkout .checkout__submit {
+  display: block;
+  height: 30px;
+  border: 1px solid #000;
+  padding-left: 15px;
+  width: 250px;
+  margin: 5px auto 0; }
+
+.page-checkout .checkout__comment {
+  padding: 15px;
+  width: 235px; }
+
+.page-checkout .checkout__delivery {
+  width: 268px; }
+
+.page-checkout .checkout__addr {
+  padding: 15px;
+  width: 235px; }
+
+.page-checkout .checkout__payment {
+  width: 268px; }
+
+.page-checkout .checkout__submit {
+  width: 270px;
+  padding: 0;
+  height: 40px;
+  border: none;
+  margin: 25px auto 0; }
+
+.page-checkout .book__cover {
+  margin: 0 auto;
+  position: relative; }
+  .page-checkout .book__cover p {
+    font-size: 16px;
+    width: 250px;
+    text-align: center;
+    margin: 10px auto 25px; }
+  .page-checkout .book__cover img {
+    max-width: 120px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block; }
+
 .book__cover {
   width: 300px;
   margin: 0 auto;
   position: relative; }
   .book__cover img {
-    max-width: 380px;
+    max-width: 420px;
     width: 100%;
     height: auto; }
 
 @-webkit-keyframes eye {
   0% {
-    border-width: 5px 5px; }
+    border-width: 3px 3px; }
   50% {
-    border-width: 65px 5px; }
+    border-width: 45px 5px; }
   100% {
-    border-width: 5px 5px; } }
+    border-width: 3px 3px; } }
 
 @keyframes eye {
   0% {
-    border-width: 5px 5px; }
+    border-width: 3px 3px; }
   50% {
-    border-width: 65px 5px; }
+    border-width: 45px 5px; }
   100% {
-    border-width: 5px 5px; } }
+    border-width: 3px 3px; } }
 
 .book__eye {
   -webkit-animation: eye 3s infinite;
           animation: eye 3s infinite;
-  width: 140px;
-  height: 140px;
+  width: 90px;
+  height: 90px;
   border-radius: 100%;
   box-sizing: border-box;
-  border-width: 5px 5px;
+  border-width: 3px 3px;
   border-style: solid;
   border-color: #000;
   display: block;
   background: #FFF;
   position: absolute;
-  top: 260px;
-  left: 120px; }
+  top: 245px;
+  left: 110px; }
   .book__eye .pixel {
     font-size: 60px;
     background: #000;
@@ -570,8 +612,8 @@ html, body {
     border-radius: 100%;
     text-align: center;
     display: block;
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
     left: 0;
     right: 0;
     top: 0;
@@ -668,7 +710,8 @@ html, body {
   background-repeat: no-repeat; }
 
 .link__bottom {
-  display: none; }
+  text-align: center;
+  display: block; }
 
 .b-founders {
   text-align: center;
@@ -784,9 +827,42 @@ html, body {
   .b-about__title {
     font-size: 42px; }
   .b-founders__elem {
-    margin: 0 40px; } }
+    margin: 0 40px; }
+  .book__eye {
+    -webkit-animation: eye 3s infinite;
+            animation: eye 3s infinite;
+    width: 140px;
+    height: 140px;
+    border-radius: 100%;
+    box-sizing: border-box;
+    border-width: 5px 5px;
+    border-style: solid;
+    border-color: #000;
+    display: block;
+    background: #FFF;
+    position: absolute;
+    top: 315px;
+    left: 140px; }
+    .book__eye .pixel {
+      font-size: 60px;
+      background: #000;
+      position: absolute;
+      border-radius: 100%;
+      text-align: center;
+      display: block;
+      width: 25px;
+      height: 25px;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      -webkit-transition: -webkit-transform ease 1s;
+      transition: -webkit-transform ease 1s;
+      transition: transform ease 1s;
+      transition: transform ease 1s, -webkit-transform ease 1s; } }
 
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 1060px) {
   .container__reviews {
     float: left; }
   .container__features {

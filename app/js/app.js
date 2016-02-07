@@ -8,9 +8,14 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'catalogController'
         })
 
-        .when('/book', {
+        .when('/book/:bookId', {
             templateUrl: 'book.html',
-            controller: 'catalogController'
+            controller: 'bookController'
+        })
+
+        .when('/checkout/:bookId', {
+            templateUrl: 'checkout.html',
+            controller: 'checkoutController'
         })
 
         .when('/about', {
@@ -19,26 +24,54 @@ app.config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 });
 
+app.controller('checkoutController', function ($scope, $http, $routeParams) {
+    var id = $routeParams.bookId;
+    console.log(id)
+    $http.get("http://university.netology.ru/api/book/" + id).success(function (data) {
+        $scope.bookDetails = data;
+    });
+    $http.get("http://university.netology.ru/api/order/delivery").success(function (data) {
+        $scope.delivery = data;
+    });
+    $http.get("http://university.netology.ru/api/order/payment").success(function (data) {
+        $scope.payment = data;
+    });
+    $http.get("http://university.netology.ru/api/currency").success(function (data) {
+        $scope.curr = data;
+        var i1 = 9; //USD
+        var i2 = 20; //Z
+        var currFrom = $scope.curr[i1];
+        var currTo = $scope.curr[i2];
+        var priceFrom = $scope.bookDetails.price;
+        var priceTo = priceFrom * (currFrom.Value / currFrom.Nominal) / (currTo.Value / currFrom.Nominal);
+        $scope.bookDetails.price = priceTo;
+    });
 
+})
+
+app.controller('bookController', function ($scope, $http, $routeParams) {
+    var id = $routeParams.bookId;
+    console.log(id)
+    $http.get("http://university.netology.ru/api/book/" + id).success(function (data) {
+        $scope.bookDetails = data;
+    });
+    $http.get("http://university.netology.ru/api/currency").success(function (data) {
+        $scope.curr = data;
+        var i1 = 9; //USD
+        var i2 = 20; //Z
+        var currFrom = $scope.curr[i1];
+        var currTo = $scope.curr[i2];
+        var priceFrom = $scope.bookDetails.price;
+        var priceTo = priceFrom * (currFrom.Value / currFrom.Nominal) / (currTo.Value / currFrom.Nominal);
+        $scope.bookDetails.price = priceTo;
+    });
+
+})
 app.controller('catalogController', function ($scope, $http) {
     $http.get("http://university.netology.ru/api/book").success(function (data) {
         $scope.books = data;
     });
-    $scope.getBook = function (id) {
-        $http.get("http://university.netology.ru/api/book/" + id).success(function (data) {
-            $scope.bookDetails = data;
-        });
-        $http.get("http://university.netology.ru/api/currency").success(function (data) {
-            $scope.curr = data;
-            var i1 = 9; //USD
-            var i2 = 20; //Z
-            var currFrom = $scope.curr[i1];
-            var currTo = $scope.curr[i2];
-            var priceFrom = $scope.bookDetails.price;
-            var priceTo = priceFrom * (currFrom.Value / currFrom.Nominal) / (currTo.Value / currFrom.Nominal);
-            $scope.bookDetails.price = priceTo;
-        });
-    };
+
 
     $scope.dragControlListeners = {
         accept: function (sourceItemHandleScope, destSortableScope) {
