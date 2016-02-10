@@ -1,20 +1,29 @@
 <section class="page-checkout" data-ng-controller="checkoutController">
     <div class="book__cover">
-        <img data-ng-src="{{bookDetails.cover.large}}" alt="">
-        <p class="text--big text--centered">{{bookDetails.title}}</p>
+        <img data-ng-src="{{book.cover}}" alt="">
+        <p class="text--big text--centered">{{book.title}}</p>
     </div>
-    <form action="" class="checkout" >
-        <input type="text" class="checkout__name" placeholder="Ваше имя" required>
-        <input type="text" class="checkout__phone" placeholder="Ваш телефон" required>
-        <input type="email" class="checkout__email" placeholder="Ваш Email">
-        <textarea class="checkout__comment" placeholder="Комментарий к заказу"></textarea>
-        <select class="checkout__delivery" data-ng-model="delivery" >
-            <option data-ng-repeat="item in delivery" value="{{item.id}}">{{item.name}}</option>
+    <form name="checkoutForm" class="checkout" ng-submit="submitCheckout()" novalidate>
+        <input type="text" name="name" class="checkout__name" placeholder="Ваше имя" required ng-model="user.name">
+        <p class="text--centered" ng-show="checkoutForm.name.$error.required" class="help-block">Это поле обязательно</p>
+        <input type="text" name="phone" class="checkout__phone" placeholder="Ваш телефон" required ng-model="user.phone">
+        <p class="text--centered" ng-show="checkoutForm.phone.$error.required" class="help-block">Это поле обязательно</p>
+        <input type="email" name="email" class="checkout__email" placeholder="Ваш Email" ng-model="user.email" required>
+        <p class="text--centered" ng-show="checkoutForm.email.$error.required" class="help-block">Это поле обязательно</p>
+        <p class="text--centered" ng-show="checkoutForm.email.$invalid" class="help-block">Некорректный email</p>
+
+        <textarea class="checkout__comment" name="comment" placeholder="Комментарий к заказу" ng-model="user.comment"></textarea>
+        <select class="checkout__delivery" data-ng-change="setDelivery(selectedDelivery.id)" data-ng-init="setDelivery('delivery-01')" data-ng-model="selectedDelivery"
+                ng-options="option.name for option in delivery">
         </select>
-        <textarea class="checkout__addr" placeholder="Адрес доставки" data-ng-hide="item.needAdress == false"></textarea>
-        <select class="checkout__payment" data-ng-model="delivery">
-            <option data-ng-repeat="item in delivery" value="{{item.id}}">{{item.name}}</option>
+        <textarea class="checkout__addr" placeholder="Адрес доставки" name="addr" ng-model="user.addr" data-ng-hide="selectedDelivery.needAdress === false"></textarea>
+        <select class="checkout__payment" data-ng-init="setDelivery('delivery-01')" data-ng-model="selectedPayment" data-ng-options="option.title for option in payment">
         </select>
-        <input class="checkout__submit" type="submit" value="Заказать">
+        <p class="text--big text--centered">Стоимость книги: {{book.price | number:0}} <span class="text--through">Z</span></p>
+        <p class="text--big text--centered">Стоимость доставки: {{selectedDelivery.price | number:0}} <span class="text--through">Z</span></p>
+        <p class="text--big text--centered">Общая стоимость: {{selectedDelivery.price+book.price | number:0}} <span class="text--through">Z</span></p>
+        <p class="text--centered" ng-show="successSend" class="help-block">Заказ успешно отправлен</p>
+
+        <input class="checkout__submit" type="submit" value="Заказать" ng-disabled="checkoutForm.$invalid">
     </form>
 </section>
