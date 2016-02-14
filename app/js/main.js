@@ -1,17 +1,16 @@
-$().ready(function () {
-    $(document).on('click', '.link__book', function (e) {
-        e.preventDefault();
-        $('.page__index').hide();
-        $('.page__book').show();
+window.addEventListener('load', function () {
 
-    })
-
-    $('.book__cover').mousemove(function (e) {
-        var area = 300;
-        var posPixelY = $('.book__eye').position().top + ($('.book__eye').height() / 2) + 360;
-        var posPixelX = $('.book__eye').position().left + ($('.book__eye').width() / 2) + 420;
-        var topVal = (-1) * ((posPixelY - e.pageY) / (area / 100));
-        var leftVal = (-1) * ((posPixelX - e.pageX) / (area / 100));
-        $('.book__eye .pixel').css({top: topVal, left: leftVal});
+    window.addEventListener('mousemove', function (e) {
+        var pix = document.getElementsByClassName('pixel')[0];
+        if (pix) {
+            var heightEye = $('.book__eye').height();
+            var widthEye = $('.book__eye').width();
+            var stepY = document.documentElement.clientHeight / heightEye;
+            var newPosY = (e.clientY / stepY) - (heightEye / 2);
+            var stepX = document.documentElement.clientWidth / widthEye;
+            var newPosX = (e.clientX / stepX) - (widthEye / 2);
+            $('.book__eye .pixel').css({top: newPosY, left: newPosX});
+        }
     })
 })
+

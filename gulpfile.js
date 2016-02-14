@@ -61,8 +61,12 @@ gulp.task('minJs', function () {
         .pipe(gulp.dest('build/js'))
 })
 gulp.task('concatJs', function () {
-    return gulp.src(['app/js/ng_sortable.js','app/js/main.js','app/js/app.js' ])
+    return gulp.src(['app/js/app.js', 'app/js/main.js'])
         .pipe(concat('scripts.js'))
+        .pipe(gulp.dest('build/js'))
+})
+gulp.task('copyJs', function () {
+    return gulp.src('app/js/sortable.js')
         .pipe(gulp.dest('build/js'))
 })
 
@@ -111,7 +115,7 @@ gulp.task('clean:build', function () {
 
 gulp.task('build', function (callback) {
     runSequence('clean:build', 'sass', 'prefix',
-        ['images', 'minCss', 'repFonts', 'concatJs', 'repHtml'], 'replaceLinks',
+        ['images', 'minCss', 'repFonts', 'concatJs','repHtml'], 'copyJs', 'replaceLinks',
         callback
     )
 })

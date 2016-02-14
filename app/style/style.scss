@@ -1,13 +1,13 @@
 @import "normalize";
 @import "fonts";
-@import "ng-sortable";
+@import "bootstrap";
 
 $colorInfo: #4D4D4D;
 body {
   background: #FFF;
   font-family: "Arial";
   max-width: 1285px;
-  margin: 0 auto;
+  margin: 0 auto !important;
 }
 
 h1 {
@@ -15,8 +15,8 @@ h1 {
   text-align: center;
   font-size: 38px;
   font-weight: 700;
-  line-height: 55px;
-  margin: 40px 0 0;
+  line-height: 45px;
+  margin: 0;
 }
 
 header {
@@ -166,63 +166,40 @@ html, body {
   &--centered {
     text-align: center;
   }
+  &--sm {
+    font-size: 16px;
+    line-height: 25px;
+  }
 }
+
 %input-ch {
   display: block;
   height: 30px;
   border: 1px solid #000;
   padding-left: 15px;
   width: 250px;
-  margin:5px auto 0;
+  margin: 5px auto 0;
 }
+
 .page-checkout {
   .checkout {
-    &__name {
-    @extend %input-ch;
-    }
-    &__phone {
-      @extend %input-ch;
-    }
-    &__email {
-      @extend %input-ch;
-    }
-    &__comment {
-      @extend %input-ch;
-      padding: 15px;
-      width: 235px;
-    }
-    &__delivery {
-      @extend %input-ch;
-      width: 268px;
-    }
-    &__addr {
-      @extend %input-ch;
-      padding: 15px;
-      width: 235px;
-    }
-    &__payment {
-      @extend %input-ch;
-      width: 268px;
-    }
-    &__submit {
-      width: 270px;
-      @extend %input-ch;
-      padding: 0;
-      height: 40px;
-      border:none;
-      margin: 25px auto 0;
+    &__info {
+      display: block;
+      margin: 10px auto;
+
     }
 
   }
   .book__cover {
 
-    margin: 0 auto;
+    margin: 20px auto 0;
     position: relative;
+    display: block;
     p {
       font-size: 16px;
       width: 250px;
       text-align: center;
-      margin:10px auto 25px;
+      margin: 10px auto 25px;
     }
     img {
       max-width: 120px;
@@ -232,22 +209,24 @@ html, body {
       display: block;
 
     }
-    //position: absolute;
-    //left: 0;
-    //right: 0;
-    //margin: 0 auto;
-    //width: 420px;
+
   }
 }
-.book__cover {
-  width: 300px;
-  margin: 0 auto;
-  position: relative;
-  img {
-    max-width: 420px;
-    width: 100%;
-    height: auto;
 
+.book {
+  &__cover {
+    width: 300px;
+    margin: 0 auto;
+    position: relative;
+    img {
+      max-width: 420px;
+      width: 100%;
+      height: auto;
+
+    }
+  }
+  &__detail {
+    text-align: center;
   }
 
 }
@@ -278,6 +257,7 @@ html, body {
   position: absolute;
   top: 245px;
   left: 110px;
+  overflow: hidden;
 
   .pixel {
     font-size: 60px;
@@ -329,9 +309,17 @@ html, body {
   .books__elem {
     display: inline-block;
     width: 300px;
-
     margin: 60px auto 0;
     vertical-align: top;
+    &:hover {
+      img {
+        -webkit-transform: scale(1.1);
+        -webkit-transform-style: preserve-3d;
+        transform: scale(1.1);
+        transform-style: preserve-3d;
+
+      }
+    }
     figure {
       margin: 0 auto;
       text-align: center;
@@ -342,6 +330,8 @@ html, body {
       -moz-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
       box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
       display: inline-block;
+
+      transition: transform linear 500ms;
     }
     a {
       vertical-align: top;
@@ -410,7 +400,7 @@ html, body {
   width: 300px;
   height: 36px;
   background-image: url('../img/logo.png');
-  background-repeat:  no-repeat;
+  background-repeat: no-repeat;
 }
 
 .link__bottom {
@@ -518,6 +508,42 @@ html, body {
   cursor: default;
 }
 
+.page-about {
+  pointer-events: none;
+  cursor: default;
+}
+
+.ui-sortable-placeholder {
+  visibility: visible !important;
+  background: transparent url('../img/divider.png') no-repeat;
+  display: inline-block;
+  cursor: move !important;
+}
+@keyframes helper {
+  0% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+.ui-sortable-helper {
+  animation: helper 2s infinite;
+
+  img {
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75) !important;
+    -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75) !important;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75) !important;
+  }
+}
+
+.loader {
+  display: block;
+  margin: 0 auto;
+}
 /*-------------------- BEGIN: MEDIAS --------------------*/
 @media screen and (min-width: 600px) {
 
@@ -614,10 +640,7 @@ html, body {
     }
   }
   .book__cover {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+    display: inline-block;
   }
 }
 
@@ -644,4 +667,5 @@ only screen and (min-resolution: 2dppx) {
   }
 
 }
+
 /*-------------------- END:   MEDIAS --------------------*/
