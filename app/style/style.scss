@@ -17,6 +17,8 @@ h1 {
   font-weight: 700;
   line-height: 45px;
   margin: 0;
+  max-width: 1200px;
+  padding: 0 10%;
 }
 
 header {
@@ -39,10 +41,29 @@ h3 {
 
 }
 
+.page__notice {
+  color: #333;
+  font-size: 26px;
+  line-height: 35px;
+  text-align: center;
+  font-weight: 400;
+  max-width: 880px;
+  margin: 50px auto 0;
+}
+
+.mob-hide {
+  display: none;
+}
+
 html, body {
   height: 100%;
 
   padding: 0;
+}
+
+u {
+  color: #4283C0;
+  text-decoration: underline;
 }
 
 .wrapper {
@@ -136,16 +157,22 @@ html, body {
     color: #333;
     word-wrap: break-word;
   }
+  &--lg {
+    font-size: 32px;
+  }
   &--quote {
+    position: relative;
+    width: 270px;
     &:before {
       content: "";
       background: url('../img/quote_bef.png') no-repeat;
       width: 21px;
       height: 23px;
       display: inline-block;
-      margin-right: 10px;
+
       position: relative;
       top: 5px;
+      float: left;
 
     }
     &:after {
@@ -154,9 +181,10 @@ html, body {
       width: 21px;
       height: 23px;
       display: inline-block;
-      margin-left: 10px;
+      left: 15px;
       position: relative;
-      top: 5px;
+      top: -25px;
+      float: right;
 
     }
   }
@@ -225,6 +253,19 @@ html, body {
 
     }
   }
+  &__review {
+
+    position: relative;
+    &-text {
+      width: 230px;
+      text-align: center;
+      display: inline-block;
+    }
+  }
+  &__feature {
+
+    position: relative;
+  }
   &__detail {
     text-align: center;
   }
@@ -292,7 +333,7 @@ html, body {
 }
 
 .skraffi {
-  margin: 30px auto 0;
+  margin: 40px auto 0;
   width: 300px;
   p {
     font-size: 15px;
@@ -313,10 +354,10 @@ html, body {
     vertical-align: top;
     &:hover {
       img {
-        -webkit-transform: scale(1.1);
-        -webkit-transform-style: preserve-3d;
-        transform: scale(1.1);
-        transform-style: preserve-3d;
+        //-webkit-transform: scale(1.1);
+        //-webkit-transform-style: preserve-3d;
+        //transform: scale(1.1);
+        //transform-style: preserve-3d;
 
       }
     }
@@ -406,17 +447,20 @@ html, body {
 .link__bottom {
   text-align: center;
   display: block;
-  //display: none;
+  img {
+    position: relative;
+    top: 4px;
+  }
 }
 
 .b-founders {
   text-align: center;
-  margin: 60px 0;
+  margin: 25px 0;
   &__elem {
     background-image: url('../img/founders.png');
     background-repeat: no-repeat;
     display: inline-block;
-    margin: 0 15px;
+    margin: 40px 15px 0;
     position: relative;
     &:hover:before {
       content: "";
@@ -519,6 +563,7 @@ html, body {
   display: inline-block;
   cursor: move !important;
 }
+
 @keyframes helper {
   0% {
     transform: scale(1.05);
@@ -530,6 +575,7 @@ html, body {
     transform: scale(1.05);
   }
 }
+
 .ui-sortable-helper {
   animation: helper 2s infinite;
 
@@ -544,9 +590,12 @@ html, body {
   display: block;
   margin: 0 auto;
 }
+
 /*-------------------- BEGIN: MEDIAS --------------------*/
 @media screen and (min-width: 600px) {
-
+  .mob-hide {
+    display: block;
+  }
   .catalog {
     max-width: 690px;
     .books__elem {
@@ -557,6 +606,11 @@ html, body {
   h3 {
     font-size: 32px;
     display: block;
+  }
+
+  .page__notice {
+    font-size: 32px;
+    line-height: 50px;
   }
   h1 {
     font-size: 72px;
@@ -593,7 +647,7 @@ html, body {
   }
   .b-founders {
     &__elem {
-      margin: 0 40px;
+      margin: 40px 40px 0;
     }
   }
   .book__eye {
@@ -630,7 +684,7 @@ html, body {
   }
 }
 
-@media screen and (min-width: 1060px) {
+@media screen and (min-width: 1130px) {
   .container {
     &__reviews {
       float: left;
@@ -639,14 +693,23 @@ html, body {
       float: right;
     }
   }
-  .book__cover {
-    display: inline-block;
+  .book {
+    &__review {
+      left: 40px;
+    }
+    &__feature {
+      right: 40px;
+    }
+    &__cover {
+      display: inline-block;
+    }
   }
+
 }
 
-@media screen and (min-width: 1285px) {
+@media screen and (min-width: 1280px) {
   .catalog {
-    max-width: 1285px;
+    max-width: 1280px;
   }
   header {
     max-width: 1120px;

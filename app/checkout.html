@@ -5,7 +5,7 @@
     <p class="text--big text--centered">{{book.title}}</p>
   </div>
   <div class="col-md-3 center-block">
-    <form class="checkout" name="checkoutForm" data-ng-submit="submitCheckout()" data-ng-hide="successSend" novalidate>
+    <form class="checkout" name="checkoutForm" data-ng-submit="submitCheckout()" data-ng-hide="successSend || failureSend" novalidate>
       <div class="form-group">
         <input type="text" class="form-control" name="name" placeholder="Ваше имя" data-ng-model="user.name" required>
         <p class="text--centered alert alert-danger" data-ng-hide="!checkoutForm.name.$error.required || checkoutForm.name.$pristine">Это поле обязательно</p>
@@ -31,7 +31,8 @@
                 data-ng-options="option.name for option in delivery"></select>
       </div>
       <div class="form-group">
-        <textarea class="form-control" placeholder="Адрес доставки" name="addr" data-ng-model="user.addr" data-ng-hide="selectedDelivery.needAdress === false"></textarea>
+        <textarea class="form-control" placeholder="Адрес доставки" name="addr" data-ng-model="user.addr" data-ng-hide="selectedDelivery.needAdress === false"
+                  data-ng-required="selectedDelivery.needAdress === true"></textarea>
       </div>
 
       <div class="form-group">
@@ -44,9 +45,10 @@
       <p class="text--big text--centered"><strong>Общая стоимость: {{selectedDelivery.price+book.price | number:0}} <span class="text--through">Z</span></strong></p>
 
       <input class="checkout__submit btn btn-primary btn-lg center-block" type="submit" value="Заказать" data-ng-disabled="checkoutForm.$invalid">
-     <img src="img/loader.svg" class="loader" alt="" data-ng-show="inProgress">
+      <img src="img/loader.svg" class="loader" alt="" data-ng-show="inProgress">
     </form>
     <p class="text--centered alert alert-success" data-ng-show="successSend">Заказ успешно отправлен</p>
-    <a href="/" class="btn btn-success btn-lg center-block" data-ng-show="successSend">На главную</a>
+    <p class="text--centered alert alert-danger" data-ng-show="failureSend">Не удалось отправить заказ. Пожалуйста, попробуйте позже</p>
+    <a href="#/" class="btn btn-success btn-lg center-block" data-ng-show="successSend || failureSend">На главную</a>
   </div>
 </section>

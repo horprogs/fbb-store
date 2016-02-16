@@ -21,7 +21,6 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'about.html',
             controller: 'aboutController'
         })
-    $locationProvider.html5Mode(true);
 });
 
 var book = {
@@ -94,6 +93,7 @@ app.controller('checkoutController', function ($scope, $http, $routeParams) {
                 }
             }
             $scope.successSend = false;
+            $scope.failureSend = false;
             $scope.inProgress = false;
             $scope.inProgress = true;
 
@@ -102,7 +102,7 @@ app.controller('checkoutController', function ($scope, $http, $routeParams) {
                     $scope.successSend = true;
                 }
             }, function () {
-                alert('Не удалось отправить заказ. Пожалуйста, попробуйте позже')
+                $scope.failureSend = true;
             });
         }
     };

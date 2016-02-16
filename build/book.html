@@ -10,7 +10,7 @@
     <div class="container__reviews">
       <div class="book__review" data-ng-repeat="review in bookDetails.reviews">
         <img src="#" data-ng-src="{{review.author.pic}}" class="block--centered" alt="">
-        <p class="text--normal text--quote text--centered">{{review.cite}}</p>
+        <p class="text--normal text--quote text--centered"><span class="book__review-text">{{review.cite}}</span></p>
       </div>
     </div>
 
@@ -22,7 +22,7 @@
     </div>
 
   </div>
-  <a data-ng-href="checkout/{{bookDetails.id}}" class="btn--purple btn__buy">Купить <br> за жалкие {{bookDetails.price | number:0}} <span class="text--through">Z</span></a>
+  <a data-ng-href="#/checkout/{{bookDetails.id}}" class="btn--purple btn__buy">Купить <br> за жалкие {{bookDetails.price | number:0}} <span class="text--through">Z</span></a>
 
   <div class="skraffi">
     <p>Наши цены самые непредсказуемые и формируются нашим уборщиком Скраффи</p>

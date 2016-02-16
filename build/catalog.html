@@ -1,10 +1,10 @@
 <section class="page__index" data-ng-controller="catalogController">
   <h1>Самое незаметное издательство</h1>
-  <h3>Перетаскивайте книги ниже с места на место. Это то, чем мы любим больше всего заниматься. Попробуйте, вам понравится. </h3>
+  <p class="page__notice mob-hide">Перетаскивайте книги ниже с места на место. Это то, чем мы любим больше всего заниматься. Попробуйте, вам понравится. </p>
   <div class="catalog" data-ng-model="books">
     <div id="{{book.id}}" class="books__elem" data-ng-repeat="book in books | limitTo: countBooksShow | filter: findPhrase">
       <figure>
-        <a data-ng-href="book/{{book.id}}" class="link__book" data-ng-click="getBook(book.id)"><img src="#" data-ng-src="{{book.cover.small}}" alt="{{book.title}}"></a>
+        <a data-ng-href="#/book/{{book.id}}" class="link__book" data-ng-click="getBook(book.id)"><img src="#" data-ng-src="{{book.cover.small}}" alt="{{book.title}}"></a>
         <figcaption>
           <div class="book__info" data-ng-bind-html="trustAsHtml(book.info)"></div>
         </figcaption>
