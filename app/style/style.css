@@ -400,16 +400,14 @@ th {
   background-image: none;
   border: 1px solid #cccccc;
   border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
 
 .form-control:focus {
   border-color: #66afe9;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
 
 .form-control::-moz-placeholder {
@@ -663,12 +661,10 @@ select[multiple].input-lg {
 
 .has-success .form-control {
   border-color: #3c763d;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
 
 .has-success .form-control:focus {
   border-color: #2b542c;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168; }
 
 .has-success .input-group-addon {
@@ -693,12 +689,10 @@ select[multiple].input-lg {
 
 .has-warning .form-control {
   border-color: #8a6d3b;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
 
 .has-warning .form-control:focus {
   border-color: #66512c;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b; }
 
 .has-warning .input-group-addon {
@@ -723,12 +717,10 @@ select[multiple].input-lg {
 
 .has-error .form-control {
   border-color: #a94442;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
 
 .has-error .form-control:focus {
   border-color: #843534;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483; }
 
 .has-error .input-group-addon {
@@ -867,7 +859,6 @@ select[multiple].input-lg {
 .btn.active {
   outline: 0;
   background-image: none;
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
 
 .btn.disabled,
@@ -876,7 +867,6 @@ fieldset[disabled] .btn {
   cursor: not-allowed;
   opacity: 0.65;
   filter: alpha(opacity=65);
-  -webkit-box-shadow: none;
   box-shadow: none; }
 
 a.btn.disabled,
@@ -1236,7 +1226,6 @@ fieldset[disabled] .btn-danger.focus {
 .btn-link[disabled],
 fieldset[disabled] .btn-link {
   background-color: transparent;
-  -webkit-box-shadow: none;
   box-shadow: none; }
 
 .btn-link,
@@ -1374,11 +1363,9 @@ input[type="button"].btn-block {
   padding-right: 12px; }
 
 .btn-group.open .dropdown-toggle {
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
 
 .btn-group.open .dropdown-toggle.btn-link {
-  -webkit-box-shadow: none;
   box-shadow: none; }
 
 .btn .caret {
@@ -1798,15 +1785,9 @@ u {
   max-width: 440px;
   width: 95%;
   margin: 0 auto;
-  background-image: -moz-linear-gradient(bottom, #623A64 0%, #865888 100%);
-  background-image: -o-linear-gradient(bottom, #623A64 0%, #865888 100%);
   background-image: -webkit-linear-gradient(bottom, #623A64 0%, #865888 100%);
   background-image: linear-gradient(to top, #623A64 0%, #865888 100%);
-  -moz-border-radius: 12px;
-  -webkit-border-radius: 12px;
   border-radius: 12px;
-  -moz-box-shadow: 0 20px 40px #382539;
-  -webkit-box-shadow: 0 20px 40px #382539;
   box-shadow: 0 20px 40px #382539;
   font-size: 33px;
   text-align: center;
@@ -1814,22 +1795,15 @@ u {
   text-decoration: none;
   color: #FFF;
   display: block;
+  -webkit-transition: box-shadow ease 500ms;
   transition: box-shadow ease 500ms; }
   .btn--purple:hover {
-    background-image: -moz-linear-gradient(bottom, #49274B 0%, #C28DC5 100%);
-    background-image: -o-linear-gradient(bottom, #49274B 0%, #C28DC5 100%);
     background-image: -webkit-linear-gradient(bottom, #49274B 0%, #C28DC5 100%);
     background-image: linear-gradient(to top, #49274B 0%, #C28DC5 100%);
-    -moz-box-shadow: 0 20px 40px #382539;
-    -webkit-box-shadow: 0 20px 40px #382539;
     box-shadow: 0 20px 40px #382539; }
   .btn--purple:active {
-    background-image: -moz-linear-gradient(bottom, #623A64 0%, #865888 100%);
-    background-image: -o-linear-gradient(bottom, #623A64 0%, #865888 100%);
     background-image: -webkit-linear-gradient(bottom, #623A64 0%, #865888 100%);
     background-image: linear-gradient(to top, #623A64 0%, #865888 100%);
-    -moz-box-shadow: 0 5px 10px #382539;
-    -webkit-box-shadow: 0 5px 10px #382539;
     box-shadow: 0 5px 10px #382539; }
 
 .btn__buy {
@@ -1928,6 +1902,14 @@ u {
 .book__detail {
   text-align: center; }
 
+@-webkit-keyframes eye {
+  0% {
+    border-width: 3px 3px; }
+  50% {
+    border-width: 45px 5px; }
+  100% {
+    border-width: 3px 3px; } }
+
 @keyframes eye {
   0% {
     border-width: 3px 3px; }
@@ -1937,7 +1919,8 @@ u {
     border-width: 3px 3px; } }
 
 .book__eye {
-  animation: eye 3s infinite;
+  -webkit-animation: eye 3s infinite;
+          animation: eye 3s infinite;
   width: 90px;
   height: 90px;
   border-radius: 100%;
@@ -1965,7 +1948,10 @@ u {
     top: 0;
     bottom: 0;
     margin: auto;
-    transition: transform ease 1s; }
+    -webkit-transition: -webkit-transform ease 1s;
+    transition: -webkit-transform ease 1s;
+    transition: transform ease 1s;
+    transition: transform ease 1s, -webkit-transform ease 1s; }
 
 .container__reviews {
   width: 300px;
@@ -1997,11 +1983,12 @@ u {
       text-align: center; }
     .catalog .books__elem img {
       vertical-align: top;
-      -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
-      -moz-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
       box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
       display: inline-block;
-      transition: transform linear 500ms; }
+      -webkit-transition: -webkit-transform linear 500ms;
+      transition: -webkit-transform linear 500ms;
+      transition: transform linear 500ms;
+      transition: transform linear 500ms, -webkit-transform linear 500ms; }
     .catalog .books__elem a {
       vertical-align: top; }
     .catalog .books__elem:first-child {
@@ -2025,8 +2012,6 @@ u {
   height: 44px;
   background-color: #FFF;
   border: 2px solid #95C1E6;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
   border-radius: 8px;
   display: block;
   margin: 50px auto 100px; }
@@ -2041,11 +2026,7 @@ u {
   height: 30px;
   background-color: #FFF;
   border: 1px solid #B3B3B3;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
   border-radius: 15px;
-  -moz-box-shadow: inset 0 1px 2.8px 1.2px #BFBFBF;
-  -webkit-box-shadow: inset 0 1px 2.8px 1.2px #BFBFBF;
   box-shadow: inset 0 1px 2.8px 1.2px #BFBFBF;
   font-size: 15px;
   color: #BFBFBF;
@@ -2158,19 +2139,32 @@ u {
   display: inline-block;
   cursor: move !important; }
 
+@-webkit-keyframes helper {
+  0% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05); }
+  50% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2); }
+  100% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05); } }
+
 @keyframes helper {
   0% {
-    transform: scale(1.05); }
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05); }
   50% {
-    transform: scale(1.2); }
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2); }
   100% {
-    transform: scale(1.05); } }
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05); } }
 
 .ui-sortable-helper {
-  animation: helper 2s infinite; }
+  -webkit-animation: helper 2s infinite;
+          animation: helper 2s infinite; }
   .ui-sortable-helper img {
-    -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75) !important;
-    -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75) !important;
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75) !important; }
 
 .loader {
@@ -2218,7 +2212,8 @@ u {
   .b-founders__elem {
     margin: 40px 40px 0; }
   .book__eye {
-    animation: eye 3s infinite;
+    -webkit-animation: eye 3s infinite;
+            animation: eye 3s infinite;
     width: 140px;
     height: 140px;
     border-radius: 100%;
@@ -2245,7 +2240,10 @@ u {
       top: 0;
       bottom: 0;
       margin: auto;
-      transition: transform ease 1s; } }
+      -webkit-transition: -webkit-transform ease 1s;
+      transition: -webkit-transform ease 1s;
+      transition: transform ease 1s;
+      transition: transform ease 1s, -webkit-transform ease 1s; } }
 
 @media screen and (min-width: 1130px) {
   .container__reviews {
@@ -2265,7 +2263,7 @@ u {
   header {
     max-width: 1120px; } }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .logo {
     background-image: url("../img/logo@2x.png");
     background-size: 300px 36px; } }
