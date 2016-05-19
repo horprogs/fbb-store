@@ -111,7 +111,7 @@ app.controller('checkoutController', function ($scope, $http, $routeParams) {
 app.controller('bookController', function ($scope, $http, $routeParams, $sce) {
     var id = $routeParams.bookId;
 
-    $http.get("http://university.netology.ru/api/book/" + id).success(function (data) {
+    $http.get("https://netology-fbb-store-api.herokuapp.com/book/" + id).success(function (data) {
         $scope.bookDetails = data;
         $scope.trustAsHtml = $sce.trustAsHtml;
         book.id = $scope.bookDetails.id;
@@ -133,7 +133,7 @@ app.controller('bookController', function ($scope, $http, $routeParams, $sce) {
 })
 
 app.controller('catalogController', function ($scope, $http, $sce) {
-    $http.get("http://university.netology.ru/api/book").success(function (data) {
+    $http.get("https://netology-fbb-store-api.herokuapp.com/book").success(function (data) {
         $scope.books = data;
         $scope.trustAsHtml = $sce.trustAsHtml;
     });
