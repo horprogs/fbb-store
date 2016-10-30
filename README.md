@@ -1,9 +1,4 @@
-﻿# Как проект устроен
+﻿# What is it
 
-Проект использует AngularJS, JQuery, JQuery UI, Bootstrap. 
-Сборка настроена под Gulp.
-Препроцессор: SASS (SCSS).
-Ссылка на проект: http://university.netology.ru/u/perepecho/fbb_store_awesome/
-
-# Ход работы
-Загружена финальная версия
+Stack: AngularJS, JQuery, JQuery UI, Bootstrap, Gulp, SCSS. 
+Project was created as final work of Netology course (January, 2016)
